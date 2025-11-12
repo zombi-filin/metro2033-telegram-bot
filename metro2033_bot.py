@@ -742,7 +742,7 @@ class Metro2033Bot:
 
         if 'error' in response_json:
             self.error_code = int(response_json['error']['code'])
-            self.log('Ошибка #' + response_json['error']['code'] + ' ' + response_json['error']['desc'])
+            self.log('Ошибка #' + str(response_json['error']['code']) + ' ' + response_json['error']['desc'])
         else:
             self.error_code = 0
             
