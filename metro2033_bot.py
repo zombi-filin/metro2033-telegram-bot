@@ -55,7 +55,7 @@ def get_path(file_name):
 
 class Metro2033Bot:
     active = True
-    api_url = 'http://vk.metrogame.net/metro/vk/vk_metro.php'
+    api_url = 'https://vk-sel.metrogame.net/metro/vk/vk_metro.php'
     config = { }
     config_file_name = 'metro2033_bot.cfg'
     error_code = 0
