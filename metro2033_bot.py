@@ -528,6 +528,14 @@ class Metro2033Bot:
                 self.log('Обновление данных')
                 self.sess = DEF_SESSION
 
+            # Вызов питомца
+            elif self.int(f'player.ctx') == 1 and self.config['use_pet'] and self.int(f'player.pets.1.food') > 0 and len(self.element(f'fray.foe')) == 2:
+                self.api_fray_summon()
+
+            # Завершение поединка
+            elif self.int(f'player.ctx') == 1:
+                self.api_fray_stop()
+
             # Ежедневный бонус
             elif self.int(f'player.bon') == 0:
                 self.api_user_bonus_upgrade()
@@ -553,14 +561,6 @@ class Metro2033Bot:
             elif (self.int(f'jobs.job') > 0) and (self.int(f'time') > self.int(f'jobs.finished')):
                 self.api_jobs_earn()
             
-            # Вызов питомца
-            elif self.int(f'player.ctx') == 1 and self.config['use_pet'] and self.int(f'player.pets.1.food') > 0 and len(self.element(f'fray.foe')) == 2:
-                self.api_fray_summon()
-
-            # Завершение поединка
-            elif self.int(f'player.ctx') == 1:
-                self.api_fray_stop()
-
             # Патруль
             elif self.int(f'player.ctx') == 5:
                 tunn_loc = self.int(f'tunn.loc')
