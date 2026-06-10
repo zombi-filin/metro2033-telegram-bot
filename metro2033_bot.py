@@ -554,7 +554,7 @@ class Metro2033Bot:
                 self.api_task_take(take_task)
 
             # Начинаем работу
-            elif (int(self.config['job_index']) > 0) and (self.int(f'jobs.job') == 0) and (self.int(f'player.home') == self.int(f'player.loc')):
+            elif (self.int(f'player.ctx') == 0) and (int(self.config['job_index']) > 0) and (self.int(f'jobs.job') == 0) and (self.int(f'player.home') == self.int(f'player.loc')):
                 self.api_jobs_take(self.config['job_index'])
             
             # Забираем зарплату
