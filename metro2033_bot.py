@@ -529,7 +529,7 @@ class Metro2033Bot:
                 self.sess = DEF_SESSION
 
             # Вызов питомца
-            elif self.int(f'player.ctx') == 1 and self.config['use_pet'] and self.int(f'player.pets.1.food') > 0 and len(self.element(f'fray.foe')) == 2:
+            elif self.int(f'player.ctx') == 1 and self.config['use_pet'] and self.int(f'player.pets.' + self.str(f'player.pet') + '.food') > 0 and len(self.element(f'fray.foe')) == 2:
                 self.api_fray_summon()
 
             # Завершение поединка
